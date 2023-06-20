@@ -7,7 +7,7 @@ const loadDictionary = (inputWord) => {
 }
 
 const displayWordDetails = word => {
-    // console.log(word.meanings[0].partOfSpeech);
+    // console.log(word.phonetics[0].audio);
     const inputField = document.getElementById('input-word');
     const inputWord = inputField.value;
     loadDictionary(inputWord);
@@ -17,23 +17,24 @@ const displayWordDetails = word => {
             <div class="audio d-flex gap-2 justify-content-between align-items-center mt-3">
                 <h4 class="fw-medium">Phonetic: ${word.phonetic}</h4>
                 <audio controls class="shadow rounded-5">
-                    <source src="${word.phonetics}" type="audio/ogg">
+                    <source src="${word.phonetics[0].audio}" type="audio/ogg">
                     Your browser does not support the audio tag.
                   </audio>
             </div>
             <h4 class="fw-medium mt-5">Part Of Speech: ${word.meanings[0].partOfSpeech}</h4>
             <h2 class="mt-3">Meaning: <hr></h2>
             <h5 class="mt-3">Definitions: <ol>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>${word.meanings[0].definitions[0].definition}</li>
+                <li>${word.meanings[0].definitions[1].definition}</li>
+                <li>${word.meanings[0].definitions[2].definition}</li>
+                <li>${word.meanings[0].definitions[3].definition}</li>
+                <li>${word.meanings[0].definitions[4].definition}</li>
             </ol></h5>
-            <h5 class="mt-3">Synonyms: </h5>
-            <h5 class="mt-3">Antonyms: </h5>
+            <h5 class="mt-3">Synonyms: ${word.meanings[0].synonyms[0]}</h5>
+            <h5 class="mt-3">Antonyms: ${word.meanings[0].antonyms[0]}</h5>
             <p></p>
     `
+    inputField.value = ""
 }
 
-loadDictionary('girl')
+loadDictionary('boy')
