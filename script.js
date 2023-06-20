@@ -14,7 +14,7 @@ const displayWordDetails = word => {
     const wordDetailsContainer = document.getElementById('word-details-container')
     wordDetailsContainer.innerHTML = `
     <h1 class="fs-1 fw-semibold">Your Word: <spam class="text-warning"> ${word.word}</spam></h1>
-            <div class="audio d-flex gap-2 justify-content-between align-items-center mt-3">
+            <div class="audio d-lg-flex gap-2 justify-content-between align-items-center mt-3">
                 <h4 class="fw-medium">Phonetic: ${word.phonetic}</h4>
                 <audio controls class="shadow rounded-5">
                     <source src="${word.phonetics[0].audio}" type="audio/ogg">
@@ -25,10 +25,6 @@ const displayWordDetails = word => {
             <h2 class="mt-3">Meaning: <hr></h2>
             <h5 class="mt-3">Definitions: <ol>
                 <li>${word.meanings[0].definitions[0].definition}</li>
-                <li>${word.meanings[0].definitions[1].definition}</li>
-                <li>${word.meanings[0].definitions[2].definition}</li>
-                <li>${word.meanings[0].definitions[3].definition}</li>
-                <li>${word.meanings[0].definitions[4].definition}</li>
             </ol></h5>
             <h5 class="mt-3">Synonyms: ${word.meanings[0].synonyms[0]}</h5>
             <h5 class="mt-3">Antonyms: ${word.meanings[0].antonyms[0]}</h5>
