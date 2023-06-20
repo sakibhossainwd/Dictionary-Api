@@ -11,6 +11,12 @@ const displayWordDetails = word => {
     const inputField = document.getElementById('input-word');
     const inputWord = inputField.value;
     loadDictionary(inputWord);
+inputField.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("myBtn").click();
+  }
+});
     const wordDetailsContainer = document.getElementById('word-details-container')
     wordDetailsContainer.innerHTML = `
     <h1 class="fs-1 fw-semibold">Your Word: <spam class="text-warning"> ${word.word}</spam></h1>
@@ -34,3 +40,6 @@ const displayWordDetails = word => {
 }
 
 loadDictionary('boy')
+
+
+
